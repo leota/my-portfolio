@@ -12,22 +12,23 @@ export const WavingModel: FC<GroupProps> = (props: GroupProps) => {
   const { responsiveRatio } = useRatio();
 
   const baseXPosition = 1.5;
-  const baseYPosition = 0;
   const baseZPosition = 10;
 
-  const scale = Math.max(0.5, Math.min(0.9 * responsiveRatio * 0.5, 0.9));
+  const scale = Math.max(0.5, Math.min(0.9 * responsiveRatio * 0.7, 0.9));
 
   let xPosition;
+  let yPosition;
 
   if (isMobile) {
     // For mobile devices, center the model
     xPosition = 6;
+    yPosition = -4;
   } else {
     // For desktop, calculate the position to place the model on the right
     xPosition = baseXPosition * responsiveRatio + responsiveRatio * 1.5;
   }
 
-  const position = new THREE.Vector3(xPosition, baseYPosition, baseZPosition);
+  const position = new THREE.Vector3(xPosition, yPosition, baseZPosition);
 
   const { scene, animations } = useGLTF("/assets/waving-animation.glb");
   const mixerRef = useRef<THREE.AnimationMixer>();
@@ -46,7 +47,7 @@ export const WavingModel: FC<GroupProps> = (props: GroupProps) => {
   });
 
   return (
-    <motion.group position={position} rotation={[0.2, -119.4, 0]} scale={scale}>
+    <motion.group position={position} rotation={[0.1, -119.2, 0]} scale={scale}>
       <primitive object={scene} scale={6} />
     </motion.group>
   );
