@@ -3,9 +3,10 @@ import Head from "next/head";
 import * as THREE from "three";
 import { Suspense, useRef, useState } from "react";
 import { RectAreaLightUniformsLib } from "three/examples/jsm/lights/RectAreaLightUniformsLib";
-import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { OrbitControls, CameraShake, Environment } from "@react-three/drei";
+import { Canvas, useFrame } from "@react-three/fiber";
+import { OrbitControls, Environment } from "@react-three/drei";
 import { Intro } from "@/components/Intro/Intro";
+import { LoadingScreen } from "@/components/LoadingScreen";
 
 RectAreaLightUniformsLib.init();
 
@@ -25,23 +26,9 @@ function Light() {
   );
 }
 
-function Rig() {
-  const [vec] = useState(() => new THREE.Vector3());
-  const { camera, pointer } = useThree();
-  useFrame(() => camera.position.lerp(vec.set(pointer.x * 2, 1, 60), 0.05));
-  return (
-    <CameraShake
-      maxYaw={0.01}
-      maxPitch={0.01}
-      maxRoll={0.01}
-      yawFrequency={0.5}
-      pitchFrequency={0.5}
-      rollFrequency={0.4}
-    />
-  );
-}
-
 export default function Home() {
+  const [isLoading, setIsLoading] = useState(true);
+
   return (
     <>
       <Head>
@@ -57,13 +44,15 @@ export default function Home() {
           alignItems: "center",
           height: "100vh",
           width: "100vw",
+          background: "#e2b6ff",
         }}
       >
+        <LoadingScreen isLoading={isLoading} setIsLoading={setIsLoading} />
         <Suspense fallback={null}>
           <Canvas
             shadows
             dpr={[1, 2]}
-            camera={{ position: [0, 160, 160], fov: 20 }}
+            camera={{ position: [16, 10, 30], fov: 42 }}
           >
             <fog attach="fog" args={["#e2b6ff", 60, 100]} />
             <ambientLight intensity={0.5} />
@@ -74,7 +63,6 @@ export default function Home() {
             <directionalLight position={[0, -5, 0]} color="red" intensity={2} />
             <Light />
             <Environment preset="warehouse" />
-            <Rig />
             <OrbitControls makeDefault />
           </Canvas>
         </Suspense>
