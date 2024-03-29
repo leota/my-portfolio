@@ -1,30 +1,11 @@
 import Head from "next/head";
 
-import * as THREE from "three";
-import { Suspense, useRef, useState } from "react";
-import { RectAreaLightUniformsLib } from "three/examples/jsm/lights/RectAreaLightUniformsLib";
-import { Canvas, useFrame } from "@react-three/fiber";
-import { OrbitControls, Environment } from "@react-three/drei";
+import { Suspense, useState } from "react";
+import { Canvas } from "@react-three/fiber";
+import { Environment, Scroll, ScrollControls } from "@react-three/drei";
 import { Intro } from "@/components/Intro/Intro";
 import { LoadingScreen } from "@/components/LoadingScreen";
-
-RectAreaLightUniformsLib.init();
-
-function Light() {
-  const ref = useRef<THREE.Group>(null!);
-  useFrame((_) => (ref.current.rotation.x = _.clock.elapsedTime));
-  return (
-    <group ref={ref}>
-      <rectAreaLight
-        width={15}
-        height={100}
-        position={[30, 30, -10]}
-        intensity={2}
-        onUpdate={(self) => self.lookAt(0, 0, 0)}
-      />
-    </group>
-  );
-}
+import { HtmlContent } from "@/components/HtmlContent/HtmlContent";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -54,16 +35,15 @@ export default function Home() {
             dpr={[1, 2]}
             camera={{ position: [16, 10, 30], fov: 42 }}
           >
-            <fog attach="fog" args={["#e2b6ff", 60, 100]} />
-            <ambientLight intensity={0.5} />
-            <Intro />
-            <spotLight position={[50, 50, -30]} castShadow />
-            <pointLight position={[-10, -10, -10]} color="red" intensity={3} />
-            <pointLight position={[0, -5, 5]} intensity={0.5} />
-            <directionalLight position={[0, -5, 0]} color="red" intensity={2} />
-            <Light />
-            <Environment preset="warehouse" />
-            <OrbitControls makeDefault />
+            <Environment preset="lobby" />
+            <ScrollControls pages={4} damping={0.1}>
+              <Scroll html>
+                <HtmlContent />
+              </Scroll>
+              <Scroll>
+                <Intro />
+              </Scroll>
+            </ScrollControls>
           </Canvas>
         </Suspense>
       </main>
