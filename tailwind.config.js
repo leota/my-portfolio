@@ -13,6 +13,11 @@ module.exports = {
         "400-vh": "400vh",
         "500-vh": "500vh",
       },
+      colors: {
+        "dark-grey": "#333333",
+        "dark-green": "#006400",
+        "navy-blue": "#003366",
+      }
     },
   },
   plugins: [],

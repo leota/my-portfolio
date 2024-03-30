@@ -13,9 +13,9 @@ body,
 
 @layer components {
   .h1 {
-      @apply text-4xl font-extrabold font-prompt m-1;
+    @apply text-4xl font-extrabold font-prompt m-1;
   }
   .h2 {
-      @apply text-3xl font-extrabold font-prompt;
+    @apply text-3xl font-extrabold font-prompt;
   }
 }
