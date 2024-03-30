@@ -1,56 +1,22 @@
-import { useWindow } from "@/hooks/use-window";
-import { Box, Heading, VStack } from "@chakra-ui/react";
-import { is } from "@react-three/fiber/dist/declarations/src/core/utils";
 import { motion } from "framer-motion";
 import { FC } from "react";
 
 export const HtmlContent: FC = () => {
-  const { isMobile } = useWindow();
   return (
-    <Box zIndex="999" w="100vw">
-      <motion.section
-        style={{
-          position: "absolute",
-          flexDirection: "column",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          width: "100%",
-        }}
-      >
+    <div className="w-screen z-10">
+      <motion.section className="absolute top-0 flex flex-col items-center md:items-start h-screen w-full mt-16 md:justify-center md:mt-0 md:mx-4 lg:mx-8">
         <motion.div whileHover={{ scale: 1.1 }} transition={{ duration: 0.5 }}>
-          <Heading
-            as="h1"
-            fontSize={isMobile ? "40px" : "100px"}
-            fontWeight={800}
-            mt="80px"
-          >
-            Full Stack
-          </Heading>
+          <h1 className="h1 text-3xl md:text-5xl lg:text-6xl xl:text-8xl">Full Stack</h1>
         </motion.div>
         <motion.div whileHover={{ scale: 1.1 }} transition={{ duration: 0.5 }}>
-          <Heading
-            as="h2"
-            fontSize={isMobile ? "40px" : "120px"}
-            fontWeight={800}
-          >
-            Web Developer
-          </Heading>
+          <h1 className="h1 md:text-6xl lg:text-7xl xl:text-9xl">Web Developer</h1>
         </motion.div>
       </motion.section>
-      <VStack
-        position="absolute"
-        top="100vh"
-        w="100%"
-        right="-500px"
-        spacing={0}
-      >
+      <div className="absolute top-100-vh w-full">
         <motion.div whileHover={{ scale: 1.1 }} transition={{ duration: 0.5 }}>
-          <Heading as="h1" fontSize="100px" fontWeight={800} mt="80px">
-            Leonardo
-          </Heading>
+          <h1 className="text-4xl font-extrabold mt-20">Leonardo</h1>
         </motion.div>
-      </VStack>
-    </Box>
+      </div>
+    </div>
   );
 };

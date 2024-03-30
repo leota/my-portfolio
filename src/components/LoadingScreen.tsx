@@ -1,4 +1,3 @@
-import { VStack } from "@chakra-ui/react";
 import { useProgress } from "@react-three/drei";
 import { FC, useEffect } from "react";
 
@@ -21,17 +20,10 @@ export const LoadingScreen: FC<Props> = ({ isLoading, setIsLoading }) => {
   return (
     <>
       {isLoading && (
-        <VStack
-          position="absolute"
-          bg="white"
-          w="full"
-          height="full"
-          zIndex="999"
-          justifyContent="center"
-        >
+        <div className="absolute bg-white w-full h-full z-999 flex justify-center">
           <p>Loading...</p>
           <p>{progress}%</p>
-        </VStack>
+        </div>
       )}
     </>
   );

@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 html,
 body,
 #root {
@@ -5,4 +9,13 @@ body,
   padding: 0;
   width: 100%;
   height: 100%;
+}
+
+@layer components {
+  .h1 {
+      @apply text-4xl font-extrabold font-prompt m-1;
+  }
+  .h2 {
+      @apply text-3xl font-extrabold font-prompt;
+  }
 }
