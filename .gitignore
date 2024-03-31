@@ -19,7 +19,7 @@
 # misc
 .DS_Store
 *.pem
-assets/
+/assets
 
 # debug
 npm-debug.log*

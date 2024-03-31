@@ -1,19 +1,9 @@
 import { FC, useEffect, useRef } from "react";
 import * as THREE from "three";
-import {
-  ScrollControlsState as DreiScrollControlsState,
-  Sphere,
-  useScroll,
-} from "@react-three/drei";
+import { Sphere, useScroll } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { gsap } from "gsap";
-
-// scroll property is missing from DreiScrollControlsState
-type ScrollControlsState = DreiScrollControlsState & {
-  scroll: {
-    current: number;
-  };
-};
+import { ScrollControlsState } from "@/types";
 
 type ColorRef = {
   current: {

@@ -28,7 +28,7 @@ export const HtmlContent: FC = () => {
       </motion.section>
       <div className="absolute top-100-vh w-full h-screen">
         <motion.div whileHover={{ scale: 1.1 }} transition={{ duration: 0.5 }}>
-          <h1 className="text-4xl font-extrabold mt-20">Leonardo</h1>
+          <h1 className="text-4xl font-extrabold mt-20">Languages</h1>
         </motion.div>
       </div>
       <div className="absolute top-200-vh w-full h-screen">

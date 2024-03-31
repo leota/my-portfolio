@@ -2,11 +2,12 @@ import Head from "next/head";
 
 import { Suspense, useState } from "react";
 import { Canvas } from "@react-three/fiber";
-import { Environment, Scroll, ScrollControls } from "@react-three/drei";
+import { Environment, OrbitControls, Scroll, ScrollControls } from "@react-three/drei";
 import { Intro } from "@/components/Intro/Intro";
 import { LoadingScreen } from "@/components/LoadingScreen";
 import { HtmlContent } from "@/components/HtmlContent/HtmlContent";
 import { Background } from "@/components/Background";
+import { Languages } from "@/components/Languages/Languages";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -50,6 +51,7 @@ export default function Home() {
               </Scroll>
               <Scroll>
                 <Intro />
+                <Languages />
               </Scroll>
             </ScrollControls>
           </Canvas>
