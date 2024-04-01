@@ -24,6 +24,9 @@ export const Languages: FC = () => {
   const halfWidth = size.width / 2;
   const [mouseX, setMouseX] = useState(0);
 
+  scale = Math.max(0.5, Math.min(0.9 * responsiveRatio * 0.1, 0.9));
+  position = new THREE.Vector3(baseXPosition, baseYPosition, 0);
+
   switch (true) {
     case isMobile:
       position = new THREE.Vector3(baseXPosition, baseYPosition, 0);
@@ -39,14 +42,13 @@ export const Languages: FC = () => {
       position = new THREE.Vector3(xPosition, yPosition, 0);
       break;
     case isLargeDesktop:
-      xPosition = baseXPosition + 14;
-      yPosition = -10;
+      xPosition = baseXPosition + 10;
+      yPosition = -3;
       position = new THREE.Vector3(xPosition, yPosition, 0);
-      scale = Math.max(0.5, Math.min(0.9 * responsiveRatio * 0.15, 0.9));
+      scale = Math.max(0.5, Math.min(0.9 * responsiveRatio * 0.2, 0.9));
       break;
     default:
-      scale = Math.max(0.5, Math.min(0.9 * responsiveRatio * 0.1, 0.9));
-      position = new THREE.Vector3(baseXPosition, baseYPosition, 0);
+      break;
   }
 
   useEffect(() => {

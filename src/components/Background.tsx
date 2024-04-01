@@ -36,7 +36,7 @@ export const Background: FC = () => {
       color: "#ffecd2",
     });
     tl.current.to(color.current, {
-      color: "#a1c4fd",
+      color: "#9370DB",
     });
   }, []);
 
