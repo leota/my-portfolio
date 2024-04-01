@@ -4,12 +4,10 @@ import * as THREE from "three";
 import { useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { motion } from "framer-motion-3d";
-import { useWindow } from "@/hooks/use-window";
-import { useRatio } from "@/hooks/use-ratio";
+import { useViewport } from "@/hooks/use-viewport";
 
 export const WavingModel: FC = () => {
-  const { isMobile, isTablet, isLargeDesktop } = useWindow();
-  const { responsiveRatio } = useRatio();
+  const { responsiveRatio, isMobile, isTablet, isLargeDesktop } = useViewport();
 
   const baseXPosition = 1.5;
   const baseZPosition = 10;
