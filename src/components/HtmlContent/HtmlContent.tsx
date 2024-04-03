@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 
 export const HtmlContent: FC = () => {
   return (
@@ -37,14 +38,34 @@ export const HtmlContent: FC = () => {
               className="mr-4"
             />
             <Image
-              alt="js"
+              alt="ts"
               src="/images/typescript.png"
               width={96}
               height={96}
               className="mr-4"
             />
-            <Image alt="js" src="/images/python.png" width={96} height={96} />
+            <Image
+              alt="python"
+              src="/images/python.png"
+              width={96}
+              height={96}
+            />
           </div>
+        </div>
+        <div className="absolute bottom-8">
+          <Link href="https://github.com/leota/my-3d-resume" target="_blank">
+            <div className="flex items-center">
+              <Image
+                alt="github"
+                src="/images/github.png"
+                width={36}
+                height={36}
+                className="mr-2"
+              />
+              <p className="text-blue-700 underline"
+              >View on GitHub</p>
+            </div>
+          </Link>
         </div>
       </div>
       {/* <div className="absolute top-200-vh w-full h-screen">
