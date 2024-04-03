@@ -44,7 +44,7 @@ export const Languages: FC = () => {
       break;
     case isLargeDesktop:
       xPosition = baseXPosition + 10;
-      yPosition = -3;
+      yPosition = 2;
       position = new THREE.Vector3(xPosition, yPosition, 0);
       scale = Math.max(0.5, Math.min(0.9 * responsiveRatio * 0.2, 0.9));
       break;
