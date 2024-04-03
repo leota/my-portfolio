@@ -19,3 +19,29 @@ body,
     @apply text-3xl font-extrabold font-prompt;
   }
 }
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.transition-gradient {
+  background-color: hsla(358, 100%, 80%, 1);
+  background-image: radial-gradient(
+      at 50% 15%,
+      hsla(14, 100%, 95%, 0.6) 0px,
+      transparent 50%
+    ),
+    radial-gradient(at 51% 95%, hsla(358, 100%, 80%, 1) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, hsla(13, 84%, 87%, 0.6) 0px, transparent 50%),
+    radial-gradient(at 96% 94%, hsla(13, 84%, 87%, 0.6) 0px, transparent 50%);
+  background-size: 200% 200%;
+  animation: gradientBG 10s ease infinite;
+}

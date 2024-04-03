@@ -32,9 +32,10 @@ export const Languages: FC = () => {
       position = new THREE.Vector3(baseXPosition, baseYPosition, 0);
       break;
     case isTablet:
-      xPosition = baseXPosition;
-      yPosition = baseYPosition;
+      xPosition = -8;
+      yPosition = -5;
       position = new THREE.Vector3(xPosition, yPosition, 0);
+      scale = Math.max(0.5, Math.min(0.9 * responsiveRatio * 0.4, 0.9));
       break;
     case isDesktop:
       xPosition = baseXPosition + 10;

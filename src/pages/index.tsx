@@ -6,7 +6,6 @@ import { Environment, Scroll, ScrollControls } from "@react-three/drei";
 import { Intro } from "@/components/Intro/Intro";
 import { LoadingScreen } from "@/components/LoadingScreen";
 import { HtmlContent } from "@/components/HtmlContent/HtmlContent";
-import { Background } from "@/components/Background";
 import { Languages } from "@/components/Languages/Languages";
 import { Infrastructure } from "@/components/Infrastructure/Infrastructure";
 
@@ -22,6 +21,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main
+        className="transition-gradient"
         style={{
           display: "flex",
           justifyContent: "center",
@@ -36,12 +36,10 @@ export default function Home() {
             shadows
             dpr={[1, 2]}
             camera={{ position: [16, 10, 30], fov: 42 }}
-            color="transparent"
+            gl={{ antialias: true, alpha: true }}
           >
-            <color attach="background" args={["#e6e7ff"]} />
             <Environment preset="lobby" />
-            <ScrollControls pages={4} damping={0.1}>
-              <Background />
+            <ScrollControls pages={2} damping={0.1}>
               <Scroll
                 html
                 style={{
@@ -53,7 +51,7 @@ export default function Home() {
               <Scroll>
                 <Intro />
                 <Languages />
-                <Infrastructure />
+                {/* <Infrastructure /> */}
               </Scroll>
             </ScrollControls>
           </Canvas>
