@@ -26,7 +26,7 @@ export const HtmlContent: FC = () => {
           </motion.div>
         </div>
       </motion.section>
-      <div className="absolute top-100-vh w-full h-screen flex justify-center lg:justify-start lg:mx-4 lg:mx-8">
+      <div className="absolute top-100-vh w-full h-screen flex justify-center lg:justify-start lg:mx-8">
         <div className="flex flex-col items-center justify-start lg:items-start lg:justify-center">
           <h1 className="text-4xl font-extrabold m-0 ">Languages</h1>
           <div className="flex items-center my-8">
@@ -52,6 +52,11 @@ export const HtmlContent: FC = () => {
             />
           </div>
         </div>
+      </div>
+      <div className="absolute top-200-vh w-full h-screen flex justify-center lg:justify-start lg:mx-8">
+        <div>
+          <h1 className="text-4xl font-extrabold mt-20">Tech stack</h1>
+        </div>
         <div className="absolute bottom-8">
           <Link href="https://github.com/leota/my-3d-resume" target="_blank">
             <div className="flex items-center">
@@ -62,22 +67,11 @@ export const HtmlContent: FC = () => {
                 height={36}
                 className="mr-2"
               />
-              <p className="text-blue-700 underline"
-              >View on GitHub</p>
+              <p className="text-blue-700 underline">View on GitHub</p>
             </div>
           </Link>
         </div>
       </div>
-      {/* <div className="absolute top-200-vh w-full h-screen">
-        <motion.div whileHover={{ scale: 1.1 }} transition={{ duration: 0.5 }}>
-          <h1 className="text-4xl font-extrabold mt-20">Leonardo</h1>
-        </motion.div>
-      </div>
-      <div className="absolute top-300-vh w-full h-screen">
-        <motion.div whileHover={{ scale: 1.1 }} transition={{ duration: 0.5 }}>
-          <h1 className="text-4xl font-extrabold mt-20">Leonardo</h1>
-        </motion.div>
-      </div> */}
     </div>
   );
 };
