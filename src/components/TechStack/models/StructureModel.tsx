@@ -1,17 +1,9 @@
-import { FC, useEffect } from "react";
-import { useThree } from "@react-three/fiber";
+import { FC } from "react";
 import { useGLTF } from "@react-three/drei";
 
 export const StructureModel: FC = () => {
-  const { scene, cameras } = useGLTF("/assets/structure.glb");
-  const { set, camera } = useThree();
+  const { scene } = useGLTF("/assets/structure.glb");
 
-  useEffect(() => {
-    if (cameras.length > 0) {
-      const glbCamera = cameras[0] as any;
-      set({ camera: glbCamera });
-    }
-  }, [cameras, set, camera]);
 
   return <primitive object={scene} />;
 };

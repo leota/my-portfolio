@@ -1,11 +1,38 @@
-import { FC } from "react";
-
+import { FC, useCallback, useRef } from "react";
 import { useGLTF } from "@react-three/drei";
+import { ThreeEvent } from "@react-three/fiber";
+import * as THREE from "three";
 
-export const PizzaIconModel: FC = () => {
+type Props = {
+  onClick: () => void;
+};
+
+export const PizzaIconModel: FC<Props> = ({ onClick }) => {
+  const ref = useRef<THREE.Object3D>(null!);
   const { scene } = useGLTF("/assets/pizza-icon.glb");
 
-  return <primitive object={scene} />;
+  const onPointerOver = useCallback((e: ThreeEvent<PointerEvent>) => {
+    e.stopPropagation();
+    document.body.style.cursor = "pointer";
+    ref.current.position.z = 0.2;
+    ref.current.updateMatrix();
+
+  }, []);
+
+  const onPointerOut = useCallback(() => {
+    document.body.style.cursor = "default";
+    ref.current.position.z = 0;
+  }, []);
+
+  return (
+    <primitive
+      ref={ref}
+      object={scene}
+      onPointerOver={onPointerOver}
+      onPointerOut={onPointerOut}
+      onClick={onClick}
+    />
+  );
 };
 
 useGLTF.preload("/assets/pizza-icon.glb");
