@@ -6,6 +6,8 @@ import { UIPanelModel } from "./models/UIPanelModel";
 import { PizzaIconModel } from "./models/PizzaIconModel";
 import { CheeseBurgerIconModel } from "./models/CheeseBurgerIconModel";
 import { CameraAnimation } from "./models/CameraAnimation";
+import { DocumentsModel } from "./models/DocumentsModel";
+import { BurgerItemsModel } from "./models/BurgerItemsModel";
 
 const baseXPosition = 0;
 const baseYPosition = 0;
@@ -30,7 +32,9 @@ export const TechStack: FC = () => {
       <UIPanelModel />
       <PizzaIconModel onClick={handleClick} />
       <CheeseBurgerIconModel onClick={handleClick} />
-      <EnvelopeModel />
+      <EnvelopeModel isPlaying={isPlaying} />
+      <DocumentsModel isPlaying={isPlaying} />
+      <BurgerItemsModel isPlaying={isPlaying} />
     </group>
   );
 };

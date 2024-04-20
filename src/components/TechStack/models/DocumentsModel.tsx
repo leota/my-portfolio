@@ -1,17 +1,16 @@
-import { useRef, useEffect, useState, FC } from "react";
+import { FC, useEffect, useRef, useState } from "react";
 import * as THREE from "three";
+
 import { useAnimations, useGLTF } from "@react-three/drei";
-import { useThree } from "@react-three/fiber";
 
 type Props = {
   isPlaying: boolean;
 };
 
-export const CameraAnimation: FC<Props> = ({ isPlaying }) => {
+export const DocumentsModel: FC<Props> = ({ isPlaying }) => {
   const [play, setPlay] = useState(isPlaying);
   const groupRef = useRef<THREE.Group>(null!);
-  const { scene, cameras, animations } = useGLTF("/assets/camera.glb");
-  const { set } = useThree();
+  const { scene, animations } = useGLTF("/assets/documents.glb");
   const { actions } = useAnimations(animations, groupRef);
 
   useEffect(() => {
@@ -32,13 +31,6 @@ export const CameraAnimation: FC<Props> = ({ isPlaying }) => {
     }
   }, [actions, play]);
 
-  useEffect(() => {
-    if (cameras.length > 0) {
-      const glbCamera = cameras[0] as THREE.PerspectiveCamera;
-      set({ camera: glbCamera });
-    }
-  }, [cameras, set]);
-
   return (
     <group ref={groupRef}>
       <primitive object={scene} />
@@ -46,4 +38,4 @@ export const CameraAnimation: FC<Props> = ({ isPlaying }) => {
   );
 };
 
-useGLTF.preload("/assets/camera.glb");
+useGLTF.preload("/assets/envelope.glb");
