@@ -38,4 +38,4 @@ export const DocumentsModel: FC<Props> = ({ isPlaying }) => {
   );
 };
 
-useGLTF.preload("/assets/envelope.glb");
+useGLTF.preload("/assets/documents.glb");

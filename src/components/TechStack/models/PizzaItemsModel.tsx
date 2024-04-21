@@ -7,10 +7,10 @@ type Props = {
   isPlaying: boolean;
 };
 
-export const BurgerItemsModel: FC<Props> = ({ isPlaying }) => {
+export const PizzaItemsModel: FC<Props> = ({ isPlaying }) => {
   const [play, setPlay] = useState(isPlaying);
   const groupRef = useRef<THREE.Group>(null!);
-  const { scene, animations } = useGLTF("/assets/burger-items.glb");
+  const { scene, animations } = useGLTF("/assets/pizza-items.glb");
   const { actions } = useAnimations(animations, groupRef);
 
   useEffect(() => {
@@ -38,4 +38,4 @@ export const BurgerItemsModel: FC<Props> = ({ isPlaying }) => {
   );
 };
 
-useGLTF.preload("/assets/burger-items.glb");
+useGLTF.preload("/assets/envelope.glb");
