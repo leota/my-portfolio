@@ -19,8 +19,9 @@ export const Image: FC<{
 );
 
 export const Skills: FC = () => (
-  <div className="flex flex-col bg-white w-screen items-center justify-start xl:py-16">
-    <h3 className="text-2xl text-gray-500 font-extrabold m-4 lg:text-3xl xl:text-5xl xl:mb-8">
+  <div className="relative flex flex-col  w-full  items-center justify-start xl:py-16">
+    <div className="absolute top-0 left-0 w-full h-full bg-white bg-opacity-10 rounded-lg" />
+    <h3 className="text-2xl text-gray-50 font-extrabold m-4 lg:text-3xl xl:text-5xl xl:mb-8">
       My Skills
     </h3>
     <div className="grid grid-cols-3 gap-4 p-4 justify-items-center items-center md:gap-8 xl:w-1/2">

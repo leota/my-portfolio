@@ -33,6 +33,8 @@ export const TechStack: FC = () => {
       camera={{ position: [16, 10, 30], fov: 42 }}
       gl={{ antialias: true, alpha: true }}
     >
+      <directionalLight position={[0, 10, 0]} intensity={2} rotation={[0,0,0]} />
+      {/* <directionalLightHelper args={[directionalLight, 5]} /> */}
       <Environment preset="lobby" />
       <CameraAnimation isPlaying={isPlaying} />
       <StructureModel />

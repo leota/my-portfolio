@@ -35,6 +35,9 @@ export const CameraAnimation: FC<Props> = ({ isPlaying }) => {
   useEffect(() => {
     if (cameras.length > 0) {
       const glbCamera = cameras[0] as THREE.PerspectiveCamera;
+      glbCamera.aspect = window.innerWidth / window.innerHeight;
+      // glbCamera.zoom = 0.3;
+      glbCamera.updateProjectionMatrix();
       set({ camera: glbCamera });
     }
   }, [cameras, set]);
