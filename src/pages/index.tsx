@@ -4,6 +4,7 @@ import { Suspense, useState } from "react";
 import { LoadingScreen } from "@/components/LoadingScreen";
 import { Hero } from "@/components/Hero/Hero";
 import { Skills } from "@/components/Skills";
+import { Projects } from "@/components/Projects/Projects";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -22,6 +23,7 @@ export default function Home() {
           <div className="flex flex-col justify-center items-center p-4 md:p-16">
             <Hero />
             <Skills />
+            <Projects />
           </div>
         </Suspense>
       </main>

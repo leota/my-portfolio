@@ -19,6 +19,15 @@ body,
   .h2 {
     @apply text-3xl font-extrabold font-prompt;
   }
+  .h3 {
+    @apply text-2xl font-extrabold font-prompt;
+  }
+  .h4 {
+    @apply text-xl font-extrabold font-prompt;
+  }
+  .h5 {
+    @apply text-lg font-extrabold font-prompt;
+  }
 }
 
 @keyframes move {
