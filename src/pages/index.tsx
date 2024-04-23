@@ -5,6 +5,7 @@ import { LoadingScreen } from "@/components/LoadingScreen";
 import { Hero } from "@/components/Hero/Hero";
 import { Skills } from "@/components/Skills";
 import { Projects } from "@/components/Projects/Projects";
+import { Socials } from "@/components/Socials";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -24,6 +25,7 @@ export default function Home() {
             <Hero />
             <Skills />
             <Projects />
+            <Socials />
           </div>
         </Suspense>
       </main>

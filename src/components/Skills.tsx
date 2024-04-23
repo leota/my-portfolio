@@ -3,8 +3,8 @@ import Link from "next/link";
 import { Image } from "@/components/Image";
 
 export const Skills: FC = () => (
-  <div className="relative flex flex-col w-full py-4 items-center justify-start xl:py-16 my-4 xl:w-4/5">
-    <div className="absolute top-0 left-0 w-full h-full bg-blue-400 bg-opacity-20 rounded-lg" />
+  <div className="relative flex flex-col w-screen py-4 items-center justify-start xl:py-16 my-4">
+    {/* <div className="absolute top-0 left-0 w-full h-full bg-blue-400 bg-opacity-20 rounded-lg" /> */}
     <h3 className="h3 text-gray-50 font-extrabold m-4 lg:text-3xl xl:text-5xl xl:mb-8">
       My Skills
     </h3>
