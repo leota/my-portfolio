@@ -6,6 +6,7 @@ import { Hero } from "@/components/Hero/Hero";
 import { Skills } from "@/components/Skills";
 import { Projects } from "@/components/Projects/Projects";
 import { Socials } from "@/components/Socials";
+import { AboutMe } from "@/components/AboutMe";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -13,7 +14,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Leonardo Maglio 3D Resume</title>
+        <title>Leonardo Maglio Portfolio</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -23,6 +24,7 @@ export default function Home() {
           <div className="absolute top-0 left-0 w-full h-1/6 bg-gradient-to-b from-purple-800 to-transparent xl:h-1/2" />
           <div className="flex flex-col justify-center items-center p-4 md:p-16">
             <Hero />
+            <AboutMe />
             <Skills />
             <Projects />
             <Socials />
