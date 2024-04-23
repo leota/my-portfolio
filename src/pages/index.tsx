@@ -1,13 +1,8 @@
 import Head from "next/head";
 
 import { Suspense, useState } from "react";
-import { Canvas } from "@react-three/fiber";
-import { Environment, Scroll, ScrollControls } from "@react-three/drei";
-import { Intro } from "@/components/Intro/Intro";
 import { LoadingScreen } from "@/components/LoadingScreen";
-import { HtmlContent } from "@/components/HtmlContent/HtmlContent";
-import { Languages } from "@/components/Languages/Languages";
-import { Infrastructure } from "@/components/Infrastructure/Infrastructure";
+import { Hero } from "@/components/Intro/Hero";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -21,7 +16,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main
-        className="transition-gradient"
+        className="transition-gradient p-16"
         style={{
           display: "flex",
           justifyContent: "center",
@@ -32,29 +27,7 @@ export default function Home() {
       >
         <LoadingScreen isLoading={isLoading} setIsLoading={setIsLoading} />
         <Suspense fallback={null}>
-          <Canvas
-            shadows
-            dpr={[1, 2]}
-            camera={{ position: [16, 10, 30], fov: 42 }}
-            gl={{ antialias: true, alpha: true }}
-          >
-            <Environment preset="lobby" />
-            <ScrollControls pages={2} damping={0.1}>
-              <Scroll
-                html
-                style={{
-                  zIndex: -10,
-                }}
-              >
-                <HtmlContent />
-              </Scroll>
-              <Scroll>
-                <Intro />
-                <Languages />
-                {/* <Infrastructure /> */}
-              </Scroll>
-            </ScrollControls>
-          </Canvas>
+          <Hero />
         </Suspense>
       </main>
     </>

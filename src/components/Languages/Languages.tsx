@@ -1,7 +1,7 @@
 import { FC, useEffect, useRef, useState } from "react";
 import * as THREE from "three";
-import { RoomModel } from "./RoomModel";
-import { TypingModel } from "./TypingModel";
+import { RoomModel } from "../Intro/Hero3D/RoomModel";
+import { TypingModel } from "../Intro/Hero3D/TypingModel";
 import { useFrame } from "@react-three/fiber";
 import { useViewport } from "@/hooks/use-viewport";
 

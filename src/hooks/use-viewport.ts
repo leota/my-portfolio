@@ -5,17 +5,15 @@ const lg = 1024; // Start of desktop screens
 const xl = 1440; // Start of large desktop screens
 
 export const useViewport = () => {
-  const { viewport, size } = useThree();
-  const responsiveRatio = viewport.width / 12;
+  const width = window.innerWidth;
 
-  const isMobile = size.width < sm;
-  const isTablet = size.width >= sm && size.width < lg;
-  const isDesktop = size.width >= lg && size.width < xl;
-  const isLargeDesktop = size.width >= xl;
+  const isMobile = width < sm;
+  const isTablet = width >= sm && width < lg;
+  const isDesktop = width >= lg && width < xl;
+  const isLargeDesktop = width >= xl;
 
   return {
-    size,
-    responsiveRatio,
+    width,
     isMobile,
     isTablet,
     isDesktop,
