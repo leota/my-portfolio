@@ -2,26 +2,22 @@ import Head from "next/head";
 
 import { Suspense, useState } from "react";
 import { LoadingScreen } from "@/components/LoadingScreen";
-import { Hero } from "@/components/Hero/Hero";
-import { Skills } from "@/components/Skills";
+import { TechStack } from "@/components/TechStack/TechStack";
 
-export default function Home() {
+export default function Skills3DTour() {
   const [isLoading, setIsLoading] = useState(true);
 
   return (
     <>
       <Head>
-        <title>Leonardo Maglio 3D Resume</title>
+        <title>Skills 3D tour</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
+      <main className="h-screen">
         <LoadingScreen isLoading={isLoading} setIsLoading={setIsLoading} />
         <Suspense fallback={null}>
-          <div className="flex flex-col justify-center items-center p-4 md:p-16">
-            <Hero />
-            <Skills />
-          </div>
+          <TechStack />
         </Suspense>
       </main>
     </>
