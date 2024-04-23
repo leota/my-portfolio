@@ -1,5 +1,6 @@
 import { useProgress } from "@react-three/drei";
 import { FC, useEffect } from "react";
+import { LoadingSpinner } from "./LoadingSpinner/LoadingSpinner";
 
 type Props = {
   isLoading: boolean;
@@ -20,9 +21,8 @@ export const LoadingScreen: FC<Props> = ({ isLoading, setIsLoading }) => {
   return (
     <>
       {isLoading && (
-        <div className="absolute bg-white w-full h-full z-999 flex justify-center">
-          <p>Loading...</p>
-          <p>{progress}%</p>
+        <div className="absolute bg-purple-300 w-full h-screen z-10 flex justify-center items-center">
+          <LoadingSpinner  />
         </div>
       )}
     </>
