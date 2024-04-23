@@ -14,6 +14,7 @@ export const Content3D: FC = () => {
 
   return (
     <group ref={ref} rotation={[0, -30, 0]} scale={0.7}>
+      <ambientLight intensity={1} color={0xffacac} />
       <RoomModel />
       <TypingModel />
     </group>
