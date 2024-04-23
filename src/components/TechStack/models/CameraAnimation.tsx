@@ -1,15 +1,19 @@
-import { useRef, useEffect, useState, FC } from "react";
+import { useRef, useEffect, useState, FC, useCallback } from "react";
 import * as THREE from "three";
 import { useAnimations, useGLTF } from "@react-three/drei";
 import { useThree } from "@react-three/fiber";
+import { useViewport } from "@/hooks/use-viewport";
 
 type Props = {
   isPlaying: boolean;
 };
 
+let glbCamera: THREE.PerspectiveCamera;
+
 export const CameraAnimation: FC<Props> = ({ isPlaying }) => {
   const [play, setPlay] = useState(isPlaying);
   const groupRef = useRef<THREE.Group>(null!);
+  const { isMobile, isTablet } = useViewport();
   const { scene, cameras, animations } = useGLTF("/assets/camera.glb");
   const { set } = useThree();
   const { actions } = useAnimations(animations, groupRef);
@@ -32,15 +36,31 @@ export const CameraAnimation: FC<Props> = ({ isPlaying }) => {
     }
   }, [actions, play]);
 
+  const updateCamera = useCallback(() => {
+    if (isMobile) {
+      glbCamera.zoom = 0.3;
+    } else if (isTablet) {
+      glbCamera.zoom = 0.5;
+    } else {
+      glbCamera.zoom = 0.9;
+    }
+  }, [isMobile, isTablet]);
+
   useEffect(() => {
     if (cameras.length > 0) {
-      const glbCamera = cameras[0] as THREE.PerspectiveCamera;
+      glbCamera = cameras[0] as THREE.PerspectiveCamera;
       glbCamera.aspect = window.innerWidth / window.innerHeight;
-      // glbCamera.zoom = 0.3;
+      updateCamera();
       glbCamera.updateProjectionMatrix();
       set({ camera: glbCamera });
     }
-  }, [cameras, set]);
+  }, [cameras, set, updateCamera]);
+
+  useEffect(() => {
+    window.addEventListener("resize", updateCamera);
+
+    return () => window.removeEventListener("resize", updateCamera);
+  }, [updateCamera]);
 
   return (
     <group ref={groupRef}>
