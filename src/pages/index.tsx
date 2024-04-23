@@ -3,6 +3,7 @@ import Head from "next/head";
 import { Suspense, useState } from "react";
 import { LoadingScreen } from "@/components/LoadingScreen";
 import { Hero } from "@/components/Intro/Hero";
+import { Skills } from "@/components/Skills";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -15,19 +16,13 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main
-        className="transition-gradient p-16"
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "100vh",
-          width: "100vw",
-        }}
-      >
+      <main>
         <LoadingScreen isLoading={isLoading} setIsLoading={setIsLoading} />
         <Suspense fallback={null}>
-          <Hero />
+          <div className="flex flex-col justify-center items-center p-4 md:p-16">
+            <Hero />
+            <Skills />
+          </div>
         </Suspense>
       </main>
     </>

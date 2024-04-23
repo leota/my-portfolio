@@ -10,7 +10,7 @@ export default function Document() {
         href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;700;800&display=swap"
         rel="stylesheet"
       />
-      <body>
+      <body className="transition-gradient">
         <Main />
         <NextScript />
       </body>
