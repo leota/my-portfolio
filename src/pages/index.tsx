@@ -7,6 +7,7 @@ import { Skills } from "@/components/Skills";
 import { Projects } from "@/components/Projects/Projects";
 import { Socials } from "@/components/Socials";
 import { AboutMe } from "@/components/AboutMe";
+import { Contacts } from "@/components/Contacts";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -28,6 +29,7 @@ export default function Home() {
             <Skills />
             <Projects />
             <Socials />
+            <Contacts />
           </div>
         </Suspense>
       </main>
