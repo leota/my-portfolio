@@ -1,7 +1,7 @@
-## My 3D Resume (WIP)
+## My Portfolio
 
-This is a basic example of my resume in 3D created to show my web development and 3D skills. <br/>
-Check out the [live demo](https://my-3d-resume.vercel.app/).
+Welcome to my portfolio where I show my skills and some of the projects I worked on.
+[Live demo](https://leonardo-maglio-portfolio.vercel.app)
 
 ### Tech stack
 - Next.js
