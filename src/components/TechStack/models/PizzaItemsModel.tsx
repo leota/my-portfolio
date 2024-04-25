@@ -1,21 +1,29 @@
-import { FC, useEffect, useRef, useState } from "react";
+import { FC, useCallback, useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 
 import { useAnimations, useGLTF } from "@react-three/drei";
 
 type Props = {
   isPlaying: boolean;
+  restartAnimation: boolean; 
+  onAnimationFinished?: () => void;
 };
 
-export const PizzaItemsModel: FC<Props> = ({ isPlaying }) => {
+export const PizzaItemsModel: FC<Props> = ({ isPlaying, restartAnimation, onAnimationFinished }) => {
   const [play, setPlay] = useState(isPlaying);
   const groupRef = useRef<THREE.Group>(null!);
   const { scene, animations } = useGLTF("/assets/pizza-items.glb");
-  const { actions } = useAnimations(animations, groupRef);
+  const { actions, mixer } = useAnimations(animations, groupRef);
 
   useEffect(() => {
     setPlay(isPlaying);
   }, [isPlaying]);
+
+  const handleAnimationFinished = useCallback(() => {
+    if (onAnimationFinished) {
+      onAnimationFinished();
+    }
+  }, [onAnimationFinished]);
 
   useEffect(() => {
     const actionNames = Object.keys(actions);
@@ -29,7 +37,21 @@ export const PizzaItemsModel: FC<Props> = ({ isPlaying }) => {
         }
       });
     }
-  }, [actions, play]);
+
+    mixer.addEventListener('finished', handleAnimationFinished);
+
+    return () => {
+      mixer.removeEventListener('finished', handleAnimationFinished);
+    };
+  }, [actions, play, mixer, handleAnimationFinished]);
+
+  useEffect(() => {
+    if (restartAnimation) {
+      Object.values(actions).forEach(action => {
+        action?.stop();
+      });
+    }
+  }, [restartAnimation, actions]);
 
   return (
     <group ref={groupRef}>
@@ -38,4 +60,4 @@ export const PizzaItemsModel: FC<Props> = ({ isPlaying }) => {
   );
 };
 
-useGLTF.preload("/assets/envelope.glb");
+useGLTF.preload("/assets/pizza-items.glb");

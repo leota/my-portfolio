@@ -6,11 +6,12 @@ import { useViewport } from "@/hooks/use-viewport";
 
 type Props = {
   isPlaying: boolean;
+  restartAnimation: boolean;
 };
 
 let glbCamera: THREE.PerspectiveCamera;
 
-export const CameraAnimation: FC<Props> = ({ isPlaying }) => {
+export const CameraAnimation: FC<Props> = ({ isPlaying, restartAnimation }) => {
   const [play, setPlay] = useState(isPlaying);
   const groupRef = useRef<THREE.Group>(null!);
   const { isMobile, isTablet } = useViewport();
@@ -61,6 +62,14 @@ export const CameraAnimation: FC<Props> = ({ isPlaying }) => {
 
     return () => window.removeEventListener("resize", updateCamera);
   }, [updateCamera]);
+
+  useEffect(() => {
+    if (restartAnimation) {
+      Object.values(actions).forEach((action) => {
+        action?.stop();
+      });
+    }
+  }, [restartAnimation, actions]);
 
   return (
     <group ref={groupRef}>

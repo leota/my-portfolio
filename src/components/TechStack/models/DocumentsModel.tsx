@@ -5,9 +5,10 @@ import { useAnimations, useGLTF } from "@react-three/drei";
 
 type Props = {
   isPlaying: boolean;
+  restartAnimation: boolean;
 };
 
-export const DocumentsModel: FC<Props> = ({ isPlaying }) => {
+export const DocumentsModel: FC<Props> = ({ isPlaying, restartAnimation }) => {
   const [play, setPlay] = useState(isPlaying);
   const groupRef = useRef<THREE.Group>(null!);
   const { scene, animations } = useGLTF("/assets/documents.glb");
@@ -30,6 +31,14 @@ export const DocumentsModel: FC<Props> = ({ isPlaying }) => {
       });
     }
   }, [actions, play]);
+
+  useEffect(() => {
+    if (restartAnimation) {
+      Object.values(actions).forEach(action => {
+        action?.stop();
+      });
+    }
+  }, [restartAnimation, actions]);
 
   return (
     <group ref={groupRef}>
