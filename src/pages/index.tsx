@@ -1,6 +1,7 @@
 import Head from "next/head";
-
+import { NextSeo } from "next-seo";
 import { Suspense, useState } from "react";
+
 import { LoadingScreen } from "@/components/LoadingScreen";
 import { Hero } from "@/components/Hero/Hero";
 import { Skills } from "@/components/Skills";
@@ -14,11 +15,10 @@ export default function Home() {
 
   return (
     <>
-      <Head>
-        <title>Leonardo Maglio Portfolio</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <NextSeo
+        title="Leonardo Maglio - Full Stack 3D Web Developer"
+        description="I'm a Full Stack 3D Web Developer with a passion for creating immersive and interactive experiences on the web."
+      />
       <main>
         <LoadingScreen isLoading={isLoading} setIsLoading={setIsLoading} />
         <Suspense fallback={null}>
