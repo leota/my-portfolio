@@ -1,3 +1,4 @@
+import { Background } from "@/components/Background";
 import { Html, Head, Main, NextScript } from "next/document";
 
 export default function Document() {
@@ -15,28 +16,7 @@ export default function Document() {
         rel="stylesheet"
       />
       <body>
-        <div className="background">
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
+        <Background />
         <Main />
         <NextScript />
       </body>
