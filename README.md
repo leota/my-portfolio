@@ -1,7 +1,7 @@
 ## My Portfolio
 
 Welcome to my portfolio where I show my skills and some of the projects I worked on.
-[Live demo](https://leonardo-maglio-portfolio.vercel.app)
+[Live demo](https://leonardomaglio.me)
 
 ### Tech stack
 - Next.js
