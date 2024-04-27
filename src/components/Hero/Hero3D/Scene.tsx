@@ -10,7 +10,7 @@ export const Scene: FC<PropsWithChildren> = ({ children }) => (
     gl={{ antialias: true, alpha: true }}
   >
     <Environment preset="lobby" />
-    <OrbitControls enableZoom={false} enablePan={false} />
+    <OrbitControls enablePan={false} />
     {children}
   </Canvas>
 );
