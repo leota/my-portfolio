@@ -1,6 +1,7 @@
-import { FC, useEffect, useRef, useState, useCallback } from "react";
-import * as THREE from "three";
-import { useAnimations, useGLTF } from "@react-three/drei";
+import { FC, useEffect, useRef, useState, useCallback } from 'react';
+
+import { useAnimations, useGLTF } from '@react-three/drei';
+import * as THREE from 'three';
 
 type Props = {
   isPlaying: boolean;
@@ -11,7 +12,7 @@ type Props = {
 export const BurgerItemsModel: FC<Props> = ({ isPlaying, restartAnimation, onAnimationFinished }) => {
   const [play, setPlay] = useState(isPlaying);
   const groupRef = useRef<THREE.Group>(null!);
-  const { scene, animations } = useGLTF("/assets/burger-items.glb");
+  const { scene, animations } = useGLTF('/assets/burger-items.glb');
   const { actions, mixer } = useAnimations(animations, groupRef);
 
   useEffect(() => {
@@ -59,4 +60,4 @@ export const BurgerItemsModel: FC<Props> = ({ isPlaying, restartAnimation, onAni
   );
 };
 
-useGLTF.preload("/assets/burger-items.glb");
+useGLTF.preload('/assets/burger-items.glb');

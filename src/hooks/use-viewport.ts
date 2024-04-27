@@ -1,8 +1,6 @@
-import { useThree } from "@react-three/fiber";
-
-const sm = 768; // Start of tablet screens
-const lg = 1024; // Start of desktop screens
-const xl = 1440; // Start of large desktop screens
+const sm = 768;
+const lg = 1024;
+const xl = 1440;
 
 export const useViewport = () => {
   const width = window.innerWidth;

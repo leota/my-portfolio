@@ -1,10 +1,12 @@
-import { FC, useRef } from "react";
-import * as THREE from "three";
+import { FC, useRef } from 'react';
 
-import { RoomModel } from "./RoomModel";
-import { TypingModel } from "./TypingModel";
-import { useFrame } from "@react-three/fiber";
-import { useViewport } from "@/hooks/use-viewport";
+import { useFrame } from '@react-three/fiber';
+import * as THREE from 'three';
+
+import { useViewport } from '@/hooks/use-viewport';
+
+import { RoomModel } from './RoomModel';
+import { TypingModel } from './TypingModel';
 
 export const Content3D: FC = () => {
   const ref = useRef<THREE.Group>(null!);

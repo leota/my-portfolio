@@ -1,8 +1,10 @@
-import { useRef, useEffect, useState, FC, useCallback } from "react";
-import * as THREE from "three";
-import { useAnimations, useGLTF } from "@react-three/drei";
-import { useThree } from "@react-three/fiber";
-import { useViewport } from "@/hooks/use-viewport";
+import { useRef, useEffect, useState, FC, useCallback } from 'react';
+
+import { useAnimations, useGLTF } from '@react-three/drei';
+import { useThree } from '@react-three/fiber';
+import * as THREE from 'three';
+
+import { useViewport } from '@/hooks/use-viewport';
 
 type Props = {
   isPlaying: boolean;
@@ -15,7 +17,7 @@ export const CameraAnimation: FC<Props> = ({ isPlaying, restartAnimation }) => {
   const [play, setPlay] = useState(isPlaying);
   const groupRef = useRef<THREE.Group>(null!);
   const { isMobile, isTablet } = useViewport();
-  const { scene, cameras, animations } = useGLTF("/assets/camera.glb");
+  const { scene, cameras, animations } = useGLTF('/assets/camera.glb');
   const { set } = useThree();
   const { actions } = useAnimations(animations, groupRef);
 
@@ -58,9 +60,9 @@ export const CameraAnimation: FC<Props> = ({ isPlaying, restartAnimation }) => {
   }, [cameras, set, updateCamera]);
 
   useEffect(() => {
-    window.addEventListener("resize", updateCamera);
+    window.addEventListener('resize', updateCamera);
 
-    return () => window.removeEventListener("resize", updateCamera);
+    return () => window.removeEventListener('resize', updateCamera);
   }, [updateCamera]);
 
   useEffect(() => {
@@ -78,4 +80,4 @@ export const CameraAnimation: FC<Props> = ({ isPlaying, restartAnimation }) => {
   );
 };
 
-useGLTF.preload("/assets/camera.glb");
+useGLTF.preload('/assets/camera.glb');

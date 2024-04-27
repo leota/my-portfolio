@@ -1,5 +1,6 @@
-import { FC } from "react";
-import NextImage from "next/image";
+import { FC } from 'react';
+
+import NextImage from 'next/image';
 
 export const Image: FC<{
     alt: string;
@@ -12,8 +13,8 @@ export const Image: FC<{
         src={src}
         width={500}
         height={500}
-        className="w-full h-auto rounded-lg"
-        layout="responsive"
+        className='w-full h-auto rounded-lg'
+        layout='responsive'
       />
     </div>
   );

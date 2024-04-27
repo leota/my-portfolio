@@ -1,7 +1,8 @@
-import { FC, useCallback, useRef } from "react";
-import { useGLTF } from "@react-three/drei";
-import { ThreeEvent } from "@react-three/fiber";
-import * as THREE from "three";
+import { FC, useCallback, useRef } from 'react';
+
+import { useGLTF } from '@react-three/drei';
+import { ThreeEvent } from '@react-three/fiber';
+import * as THREE from 'three';
 
 type Props = {
   onClick: () => void;
@@ -9,18 +10,18 @@ type Props = {
 
 export const CheeseBurgerIconModel: FC<Props> = ({ onClick }) => {
   const ref = useRef<THREE.Object3D>(null!);
-  const { scene } = useGLTF("/assets/cheeseburger-icon.glb");
+  const { scene } = useGLTF('/assets/cheeseburger-icon.glb');
 
   const onPointerOver = useCallback((e: ThreeEvent<PointerEvent>) => {
     e.stopPropagation();
-    document.body.style.cursor = "pointer";
+    document.body.style.cursor = 'pointer';
     ref.current.position.z = 0.2;
     ref.current.updateMatrix();
 
   }, []);
 
   const onPointerOut = useCallback(() => {
-    document.body.style.cursor = "default";
+    document.body.style.cursor = 'default';
     ref.current.position.z = 0;
   }, []);
 
@@ -35,4 +36,4 @@ export const CheeseBurgerIconModel: FC<Props> = ({ onClick }) => {
   );
 };
 
-useGLTF.preload("/assets/cheeseburger-icon.glb");
+useGLTF.preload('/assets/cheeseburger-icon.glb');

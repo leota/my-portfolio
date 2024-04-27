@@ -1,7 +1,8 @@
-import { FC, useEffect, useRef, useState } from "react";
-import * as THREE from "three";
+import { FC, useEffect, useRef, useState } from 'react';
 
-import { useAnimations, useGLTF } from "@react-three/drei";
+import { useAnimations, useGLTF } from '@react-three/drei';
+import * as THREE from 'three';
+
 
 type Props = {
   isPlaying: boolean;
@@ -11,7 +12,7 @@ type Props = {
 export const EnvelopeModel: FC<Props> = ({ isPlaying, restartAnimation }) => {
   const [play, setPlay] = useState(isPlaying);
   const groupRef = useRef<THREE.Group>(null!);
-  const { scene, animations } = useGLTF("/assets/envelope.glb");
+  const { scene, animations } = useGLTF('/assets/envelope.glb');
   const { actions } = useAnimations(animations, groupRef);
 
   useEffect(() => {
@@ -47,4 +48,4 @@ export const EnvelopeModel: FC<Props> = ({ isPlaying, restartAnimation }) => {
   );
 };
 
-useGLTF.preload("/assets/envelope.glb");
+useGLTF.preload('/assets/envelope.glb');

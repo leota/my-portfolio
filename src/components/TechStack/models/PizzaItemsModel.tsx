@@ -1,7 +1,8 @@
-import { FC, useCallback, useEffect, useRef, useState } from "react";
-import * as THREE from "three";
+import { FC, useCallback, useEffect, useRef, useState } from 'react';
 
-import { useAnimations, useGLTF } from "@react-three/drei";
+import { useAnimations, useGLTF } from '@react-three/drei';
+import * as THREE from 'three';
+
 
 type Props = {
   isPlaying: boolean;
@@ -12,7 +13,7 @@ type Props = {
 export const PizzaItemsModel: FC<Props> = ({ isPlaying, restartAnimation, onAnimationFinished }) => {
   const [play, setPlay] = useState(isPlaying);
   const groupRef = useRef<THREE.Group>(null!);
-  const { scene, animations } = useGLTF("/assets/pizza-items.glb");
+  const { scene, animations } = useGLTF('/assets/pizza-items.glb');
   const { actions, mixer } = useAnimations(animations, groupRef);
 
   useEffect(() => {
@@ -60,4 +61,4 @@ export const PizzaItemsModel: FC<Props> = ({ isPlaying, restartAnimation, onAnim
   );
 };
 
-useGLTF.preload("/assets/pizza-items.glb");
+useGLTF.preload('/assets/pizza-items.glb');

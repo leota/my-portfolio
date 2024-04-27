@@ -1,6 +1,8 @@
-import { useProgress } from "@react-three/drei";
-import { FC, useEffect, useState } from "react";
-import { LoadingSpinner } from "./LoadingSpinner/LoadingSpinner";
+import { FC, useEffect, useState } from 'react';
+
+import { useProgress } from '@react-three/drei';
+
+import { LoadingSpinner } from './LoadingSpinner/LoadingSpinner';
 
 
 export const LoadingScreen: FC = () => {
@@ -18,7 +20,7 @@ export const LoadingScreen: FC = () => {
   return (
     <>
       {isLoading && (
-        <div className="absolute bg-purple-300 w-full h-screen z-10 flex justify-center items-center">
+        <div className='absolute bg-purple-300 w-full h-screen z-10 flex justify-center items-center'>
           <LoadingSpinner  />
         </div>
       )}

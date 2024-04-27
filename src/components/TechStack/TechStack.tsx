@@ -1,16 +1,20 @@
-import { FC, useState } from "react";
-import { useRouter } from "next/router";
-import { StructureModel } from "./models/StructureModel";
-import { EnvelopeModel } from "./models/EnvelopeModel";
-import { UIPanelModel } from "./models/UIPanelModel";
-import { PizzaIconModel } from "./models/PizzaIconModel";
-import { CheeseBurgerIconModel } from "./models/CheeseBurgerIconModel";
-import { CameraAnimation } from "./models/CameraAnimation";
-import { DocumentsModel } from "./models/DocumentsModel";
-import { BurgerItemsModel } from "./models/BurgerItemsModel";
-import { PizzaItemsModel } from "./models/PizzaItemsModel";
-import { Canvas } from "@react-three/fiber";
-import { Environment } from "@react-three/drei";
+import { FC, useState } from 'react';
+
+import { useRouter } from 'next/router';
+
+import { Environment } from '@react-three/drei';
+import { Canvas } from '@react-three/fiber';
+
+import { BurgerItemsModel } from './models/BurgerItemsModel';
+import { CameraAnimation } from './models/CameraAnimation';
+import { CheeseBurgerIconModel } from './models/CheeseBurgerIconModel';
+import { DocumentsModel } from './models/DocumentsModel';
+import { EnvelopeModel } from './models/EnvelopeModel';
+import { PizzaIconModel } from './models/PizzaIconModel';
+import { PizzaItemsModel } from './models/PizzaItemsModel';
+import { StructureModel } from './models/StructureModel';
+import { UIPanelModel } from './models/UIPanelModel';
+
 
 export const TechStack: FC = () => {
   const { push } = useRouter();
@@ -45,11 +49,11 @@ export const TechStack: FC = () => {
   };
 
   const handleBack = () => {
-    push("/");
+    push('/');
   };
 
   return (
-    <div className="relative h-screen">
+    <div className='relative h-screen'>
       <Canvas
         shadows
         dpr={[1, 2]}
@@ -61,7 +65,7 @@ export const TechStack: FC = () => {
           intensity={2}
           rotation={[0, 0, 0]}
         />
-        <Environment preset="lobby" />
+        <Environment preset='lobby' />
         <CameraAnimation isPlaying={isPlaying} restartAnimation={isRestart} />
         <StructureModel />
         <UIPanelModel />
@@ -85,16 +89,16 @@ export const TechStack: FC = () => {
         )}
       </Canvas>
       {isAnimationFinished && (
-        <div className="absolute w-full bottom-10 flex justify-center">
+        <div className='absolute w-full bottom-10 flex justify-center'>
           <button
             onClick={handleRestart}
-            className="bg-purple-600 text-white font-bold py-2 px-4 rounded-full m-2 hover:bg-purple-700"
+            className='bg-purple-600 text-white font-bold py-2 px-4 rounded-full m-2 hover:bg-purple-700'
           >
             Start again
           </button>
           <button
             onClick={handleBack}
-            className="bg-purple-300 text-purple-600 font-bold py-2 px-4 rounded-full m-2 hover:bg-purple-400"
+            className='bg-purple-300 text-purple-600 font-bold py-2 px-4 rounded-full m-2 hover:bg-purple-400'
           >
             Back to home
           </button>
