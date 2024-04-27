@@ -1,13 +1,10 @@
 import { useProgress } from "@react-three/drei";
-import { FC, useEffect } from "react";
+import { FC, useEffect, useState } from "react";
 import { LoadingSpinner } from "./LoadingSpinner/LoadingSpinner";
 
-type Props = {
-  isLoading: boolean;
-  setIsLoading: (loading: boolean) => void;
-};
 
-export const LoadingScreen: FC<Props> = ({ isLoading, setIsLoading }) => {
+export const LoadingScreen: FC = () => {
+  const [isLoading, setIsLoading] = useState(true);
   const { progress, total, loaded, item } = useProgress();
 
   useEffect(() => {
